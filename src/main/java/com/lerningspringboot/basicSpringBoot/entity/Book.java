@@ -1,16 +1,22 @@
 package com.lerningspringboot.basicSpringBoot.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Book {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String author;
 	private int count;
-	
-	public Book() { }
+
+	public Book() {
+	}
 
 	public Book(int id, String name, String author, int count) {
 		this.id = id;
@@ -53,7 +59,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", count=" + count + "]";
+		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", totalCount=" + count + "]";
 	}
-	
+
 }
