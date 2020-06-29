@@ -21,23 +21,23 @@ public class MyTestController {
 	@Autowired
 	BookRepo bookrep;
 
-	@GetMapping("/book")
+	@GetMapping("/api/book")
 	public List<Book> getBookList() {
 		return bookrep.findAll();
 	}
 
-	@PostMapping("/book")
+	@PostMapping("/api/book")
 	public Book createBook(@RequestBody Book book) {
 		return bookrep.save(book);
 	}
 
-	@PutMapping("/book/{id}")
+	@PutMapping("/api/book/{id}")
 	public Book editBook(@PathVariable int id, @RequestBody Book bookObj) {
 		bookObj.setId(id); // Setting the id for the record where change is reqd.
 		return bookrep.save(bookObj); // Setting the entire value that is coming up
 	}
 
-	@DeleteMapping("/book/{id}")
+	@DeleteMapping("/api/book/{id}")
 	public String deleteBook(@PathVariable int id) {
 		bookrep.deleteById(id);
 		return "Deletion Success";
